@@ -1,14 +1,23 @@
 package co.edu.uniquindio.unitravel.entidades;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
-import java.util.Objects;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Libro implements Serializable {
 
     @Id
+    @EqualsAndHashCode.Include
     private String isbn;
     private String nombre;
     private int unidades;
@@ -19,53 +28,5 @@ public class Libro implements Serializable {
         this.nombre = nombre;
         this.unidades = unidades;
         this.anio = anio;
-    }
-
-    public Libro() {
-    }
-
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getUnidades() {
-        return unidades;
-    }
-
-    public void setUnidades(int unidades) {
-        this.unidades = unidades;
-    }
-
-    public short getAnio() {
-        return anio;
-    }
-
-    public void setAnio(short anio) {
-        this.anio = anio;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Libro libro = (Libro) o;
-        return Objects.equals(isbn, libro.isbn);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(isbn);
     }
 }
