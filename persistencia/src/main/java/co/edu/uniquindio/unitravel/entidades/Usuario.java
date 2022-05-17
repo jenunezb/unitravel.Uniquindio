@@ -1,9 +1,9 @@
 package co.edu.uniquindio.unitravel.entidades;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -15,13 +15,14 @@ import java.util.Map;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Cliente extends Persona implements Serializable {
-
-    @OneToMany(mappedBy = "clientes")
+@ToString(callSuper = true)
+public class Usuario extends Persona implements Serializable {
+    @ToString.Exclude
+    @OneToMany(mappedBy = "usuarios")
     private List<Comentario> comentarios;
 
-    public Cliente(String cedula, String nombre, String email, Map<String, String> telefono, Ciudad ciudad, List<Comentario> comentarios) {
-        super(cedula, nombre, email, telefono, ciudad);
+    public Usuario(String cedula, String nombre, String email, Map<String, String> telefono, Ciudad ciudad, String password, List<Comentario> comentarios) {
+        super(cedula, nombre, email, telefono, ciudad, password);
         this.comentarios = comentarios;
     }
 }

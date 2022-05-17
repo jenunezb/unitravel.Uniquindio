@@ -31,10 +31,11 @@ public class Vuelo implements Serializable {
     @ManyToOne
     private Ciudad ciudadDestino; //Ciudad de destino;
 
-
+    @ToString.Exclude
     @OneToMany(mappedBy = "vuelo")
     private List<Reserva> reservas;
 
+    @ToString.Exclude
     @ManyToMany(mappedBy = "vuelos")
     private List<Silla> sillas;
 

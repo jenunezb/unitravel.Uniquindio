@@ -14,7 +14,7 @@ import java.util.Map;
 @Setter
 public class Administrador extends Persona implements Serializable {
 
-    public Administrador(String cedula, String nombre, String email, Map<String, String> telefono, Ciudad ciudad) {
-        super(cedula, nombre, email, telefono, ciudad);
+    public Administrador(String cedula, String nombre, String email, Map<String, String> telefono, Ciudad ciudad, String password) {
+        super(cedula, nombre, email, telefono, ciudad, password);
     }
 }

@@ -21,11 +21,8 @@ public class Habitacion implements Serializable {
     @Column(length = 10)
     private String codigo;
 
-    @NonNull
     private double precio;
 
-    @Min(1)
-    @NonNull
     private int capacidad;
 
     @ElementCollection
@@ -38,6 +35,7 @@ public class Habitacion implements Serializable {
     @ManyToMany
     private List<Hotel> hoteles;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "habitaciones")
     private List<Foto> fotos;
 

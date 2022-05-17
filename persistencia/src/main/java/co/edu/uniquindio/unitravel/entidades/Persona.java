@@ -12,23 +12,27 @@ import java.util.Map;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString
 public class Persona implements Serializable {
     @Id
     @EqualsAndHashCode.Include
-    @Column(length = 10)
+    @Column(length = 20)
     private String cedula;
 
-    @Column(length = 200, nullable = false)
+    @Column(length = 100, nullable = false)
     private String nombre;
 
-    @Column (length = 200,nullable = false, unique = true)
+    @Column (length = 150,nullable = false, unique = true)
     private String email;
 
-    @ElementCollection
+   @ElementCollection
     private Map<String, String> telefono;
 
-    @ManyToOne
-    @JoinColumn(nullable = false)
+   @ManyToOne
+    @JoinColumn(nullable = true)
     private Ciudad ciudad;
+
+    @Column (length = 50,nullable = false)
+    private String password;
 
 }

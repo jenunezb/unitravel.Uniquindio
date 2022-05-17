@@ -37,5 +37,5 @@ public class Comentario implements Serializable {
     private Hotel hoteles;
 
     @ManyToOne
-    private Cliente clientes;
+    private Usuario usuarios;
 }

@@ -11,17 +11,22 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString
 public class Ciudad implements Serializable {
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "ciudad")
-    private List<Cliente> clientes;
+    private List<Usuario> usuarios;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "ciudad")
     private List<Hotel> hoteles;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "ciudadOrigen")
     private List<Vuelo> vuelosOrigen;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "ciudadDestino")
     private List<Vuelo> vuelosDestino;
 
@@ -34,5 +39,8 @@ public class Ciudad implements Serializable {
     @Column(length = 100, nullable = false)
     private String nombre;
 
-
+    public Ciudad(int codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+    }
 }

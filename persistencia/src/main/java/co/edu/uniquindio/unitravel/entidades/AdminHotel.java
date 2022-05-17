@@ -13,7 +13,7 @@ import java.util.Map;
 @Getter
 @Setter
 public class AdminHotel extends Persona implements Serializable {
-    public AdminHotel(String cedula, String nombre, String email, Map<String, String> telefono, Ciudad ciudad) {
-        super(cedula, nombre, email, telefono, ciudad);
+    public AdminHotel(String cedula, String nombre, String email, Map<String, String> telefono, Ciudad ciudad, String password) {
+        super(cedula, nombre, email, telefono, ciudad, password);
     }
 }
