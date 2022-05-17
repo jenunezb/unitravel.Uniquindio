@@ -17,16 +17,21 @@ public class Ciudad implements Serializable {
     private List<Persona> personas;
 
     @OneToMany(mappedBy = "ciudad")
-    @NonNull
     private List<Hotel> hoteles;
+
+    @OneToMany(mappedBy = "ciudadOrigen")
+    private List<Vuelo> vuelosOrigen;
+
+    @OneToMany(mappedBy = "ciudadDestino")
+    private List<Vuelo> vuelosDestino;
 
     @Id
     @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(length = 20)
     private int codigo;
-    @NonNull
-    @Column(length = 100)
+
+    @Column(length = 100, nullable = false)
     private String nombre;
 
     public Ciudad(List<Persona> personas, int codigo, @NonNull String nombre) {

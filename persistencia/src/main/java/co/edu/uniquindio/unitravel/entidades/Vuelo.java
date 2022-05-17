@@ -3,10 +3,7 @@ package co.edu.uniquindio.unitravel.entidades;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -21,22 +18,29 @@ public class Vuelo implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     @Column(length = 10)
-    private String codigo;
-
-    @Column(length = 200, nullable = false)
-    private String aerolinea;
-
-    //Falta FK de Ciudad origen y destino
+    private String codigo; //Código de Vuelos autoincrementable
 
     @ElementCollection
-    @NonNull
-    @Column(length = 200)
-    private List <String> ReservaSilla;
+    @Column(length = 200, nullable = false)
+    private List <String> aerolinea; //Creo una lista de Aerolineas sin importar el resto de la información
 
-    public Vuelo(String codigo, String aerolinea, List<String> reservaSilla) {
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Ciudad ciudadOrigen; //Ciudad de origen
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private Ciudad ciudadDestino; //Ciudad de destino
+    @ElementCollection
+
+    @Column(length = 200)
+    private List <Integer> ReservaSilla;
+
+    public Vuelo(String codigo, List<String> aerolinea, Ciudad ciudadOrigen, Ciudad ciudadDestino, List<Integer> reservaSilla) {
         this.codigo = codigo;
         this.aerolinea = aerolinea;
+        this.ciudadOrigen = ciudadOrigen;
+        this.ciudadDestino = ciudadDestino;
         ReservaSilla = reservaSilla;
     }
-
 }

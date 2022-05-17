@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class ReservaHotel implements Serializable {
+public class Reserva implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     private String codigo;
@@ -38,8 +38,5 @@ public class ReservaHotel implements Serializable {
 
     @Column( nullable = false)
     private int cantidadPersonas;
-
-
-
 
 }
