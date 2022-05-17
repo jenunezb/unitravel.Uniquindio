@@ -5,9 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Map;
-
-@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@MappedSuperclass
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -29,6 +30,5 @@ public class Persona implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Ciudad ciudad;
-
 
 }

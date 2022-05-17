@@ -14,7 +14,7 @@ import java.util.List;
 public class Ciudad implements Serializable {
 
     @OneToMany(mappedBy = "ciudad")
-    private List<Persona> personas;
+    private List<Cliente> clientes;
 
     @OneToMany(mappedBy = "ciudad")
     private List<Hotel> hoteles;

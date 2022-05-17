@@ -38,6 +38,4 @@ public class Comentario implements Serializable {
 
     @ManyToOne
     private Cliente clientes;
-
-    //Falta FK  a la cedula del cliente
 }
