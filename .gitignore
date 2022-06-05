@@ -1,0 +1,22 @@
+### Java ###
+*.class
+
+# Package files#
+
+*.war
+*.ear
+
+### Gralde ###
+# Exclude Folder List #
+build/
+
+#PDT-specific
+.buildpath
+
+### IntelliJ ###
+*.iml
+*.ipr
+*.iws
+.idea/
+
+/bin
