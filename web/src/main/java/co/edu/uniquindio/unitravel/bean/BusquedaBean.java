@@ -24,9 +24,10 @@ public class BusquedaBean implements Serializable {
     @Autowired
     private UsuarioServicio usuarioServicio;
 
-    // @Value("#{params['busqueda']} de BusquedaBean no me sirve
+   //@Value("#{param['busqueda']}")
     private String busquedaParam;
 
+    @Getter @Setter
     private List<Hotel> hoteles;
     @PostConstruct
     public void inicializar(){
