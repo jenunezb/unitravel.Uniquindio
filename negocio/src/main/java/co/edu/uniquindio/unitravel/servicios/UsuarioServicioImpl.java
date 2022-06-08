@@ -62,5 +62,10 @@ public class UsuarioServicioImpl implements UsuarioServicio{
         return usuarioRepo.findAll();
     }
 
+    @Override
+    public List<Hotel> buscarHotelesNombre(String nombreHotel){
+        System.out.println(nombreHotel);
+        return hotelRepo.findByNombreContainsIgnoreCase(nombreHotel);
+    }
 
 }

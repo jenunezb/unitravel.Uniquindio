@@ -12,6 +12,6 @@ public interface HotelRepo extends JpaRepository<Hotel,Integer> {
 
     List<Hotel> findAllByEstrellas(int estrellas);
 
-    List<Hotel> findAllByNombre(String nombre);
+    List<Hotel> findByNombreContainsIgnoreCase(String nombre);
 
 }

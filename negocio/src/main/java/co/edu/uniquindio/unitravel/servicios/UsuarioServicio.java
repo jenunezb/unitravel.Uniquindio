@@ -19,6 +19,6 @@ public interface UsuarioServicio {
 
         List<Usuario> listarUsuarios();
 
-      // List<Hotel> buscarHotelesCiudad(String nombreHotel);
+        List<Hotel> buscarHotelesNombre(String nombreHotel);
 
 }

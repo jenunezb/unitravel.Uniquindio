@@ -1,6 +1,7 @@
 package co.edu.uniquindio.unitravel;
 
 import co.edu.uniquindio.unitravel.entidades.Hotel;
+import co.edu.uniquindio.unitravel.entidades.Usuario;
 import co.edu.uniquindio.unitravel.repositorios.HotelRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -38,4 +39,11 @@ public class HotelTest {
         Assertions.assertNotNull(guardado);
         System.out.println(guardado);
     } */
+
+    @Test
+    @Sql("classpath:dataset.sql")
+    public void listarHotelesPorNombre(){
+        List<Hotel> hoteles = hotelRepo.findByNombreContainsIgnoreCase("c");
+        System.out.println(hoteles);
+}
 }
