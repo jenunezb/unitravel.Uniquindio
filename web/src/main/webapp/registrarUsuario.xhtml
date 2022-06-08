@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Registrar usuario</title>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+    <h:outputStylesheet  library="css" name="style.css"></h:outputStylesheet>
+    <h:outputStylesheet library="js" name="bootstrap.bundle.min.js"></h:outputStylesheet>
+</h:head>
+<h:body>
+    <div id="encabezado">
+    <div class="px-3 py-2 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="" class="inicio">
+                    <h:graphicImage library="img" name="unitravel-icon.png" styleClass="icono-p"></h:graphicImage>
+
+                </a>
+                <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                </a>
+
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                    <li>
+                        <a href="index.xhtml" class="nav-link text-secondary">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="registrarUsuario.xhtml" class="nav-link text-white">
+                            Regístrese
+                        </a>
+                    </li>
+                    <li>
+                        <a href="crearHotel.xhtml" class="nav-link text-white">
+                            Crear Hoteles
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            Products
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            Customers
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="px-3 py-2 border-bottom mb-3">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <h:form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
+                <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                </input>
+            </h:form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-light text-dark me-2">Login</button>
+                <button type="button" class="btn btn-primary">Sign-up</button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div align="center">
+        <h2>Registro usuario</h2>
+        <h:form class="registrar_usuario">
+
+             <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel value="Cédula " for="cedula_u"></p:outputLabel>
+            <p:inputText id="cedula_u" value="#{usuarioBean.usuario.cedula}" required="true"></p:inputText>
+
+            <p:outputLabel value="Nombre " for="nombre_u"></p:outputLabel>
+            <p:inputText id="nombre_u" value="#{usuarioBean.usuario.nombre}" required="true"></p:inputText>
+
+            <p:outputLabel value="Correo " for="correo_u"></p:outputLabel>
+            <p:inputText id="correo_u" type="email" value="#{usuarioBean.usuario.email}"></p:inputText>
+
+            <p:outputLabel value="Contraseña " for="feedback"></p:outputLabel>
+            <p:password id="feedback" value="#{usuarioBean.usuario.password}" feedback="true" required="true"></p:password>
+
+        </h:panelGrid>
+
+        <p:commandButton id="registrar_u" value="Registrar usuario" action="#{usuarioBean.registrarUsuario}" update="@form"></p:commandButton>
+
+        <p:messages showDetail="true"></p:messages>
+
+    </h:form>
+    </div>
+</h:body>
+</html>

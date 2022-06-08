@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Página de Inicio</title>
+    <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+    <h:outputStylesheet  library="css" name="style.css"></h:outputStylesheet>
+    <h:outputStylesheet library="js" name="bootstrap.bundle.min.js"></h:outputStylesheet>
+</h:head>
+<h:body>
+    <div id="encabezado">
+        <div class="px-3 py-2 bg-dark text-white">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="" class="inicio">
+                        <h:graphicImage library="img" name="unitravel-icon.png" styleClass="icono-p"></h:graphicImage>
+
+                    </a>
+                    <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                        <li>
+                            <a href="index.xhtml" class="nav-link text-secondary">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="registrarUsuario.xhtml" class="nav-link text-white">
+                                Regístrese
+                            </a>
+                        </li>
+                        <li>
+                            <a href="crearHotel.xhtml" class="nav-link text-white">
+                                Crear Hoteles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link text-white">
+                                Customers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="px-3 py-2 border-bottom mb-3">
+            <div class="container d-flex flex-wrap justify-content-center">
+                <h:form class="col-12 col-lg-auto mb-2 mb-lg-0 me-lg-auto">
+                    <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+                    </input>
+                </h:form>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-light text-dark me-2">Login</button>
+                    <button type="button" class="btn btn-primary">Sign-up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="crear_hotel" align="center">
+    <p:panel header="Crear Hotel">
+        <h:form>
+            <h:panelGrid columns="2" cellpadding="5">
+
+            <p:outputLabel for="nombre_hotel" value="Nombre"></p:outputLabel>
+            <p:inputText id="nombre_hotel" type="text" value="#{hotelBean.hotel.nombre}" required="true"></p:inputText>
+
+            <p:outputLabel for="direccion_h" value="Dirección"></p:outputLabel>
+            <p:inputText id="direccion_h" type="text" value="#{hotelBean.hotel.direccion}" required="true"></p:inputText>
+
+            <p:outputLabel for="telefono_hotel" value="Teléfono"></p:outputLabel>
+            <p:inputText id="telefono_hotel" type="text" value="#{hotelBean.hotel.telefono}" required="true"></p:inputText>
+
+            <p:outputLabel for="numeroEstrellas" value="Número de estrellas"></p:outputLabel>
+            <p:inputText id="numeroEstrellas" type="number" value="#{hotelBean.hotel.estrellas}" required="true"></p:inputText>
+                <p:fileUpload id="imagenes_hotel"
+                              listener="#{hotelBean.subirImagenes}" mode="advanced"
+                              multiple="true" sizeLimit="1000000" fileLimit="5"
+                              allowTypes="/(\.|\/)(gif|jpe?g|png)$/" required="true" />
+            </h:panelGrid>
+            <p:growl showDetail="true"></p:growl>
+            <p:commandButton id="registrar_h" value="Crear Hotel" action="#{hotelBean.registrarHotel()}" update="@form"></p:commandButton>
+        </h:form>
+    </p:panel>
+    </div>
+</h:body>
+</html>
