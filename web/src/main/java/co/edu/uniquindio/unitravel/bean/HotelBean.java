@@ -41,14 +41,14 @@ public class HotelBean implements Serializable {
     hotel=new Hotel();
     }
 
-    public String registrarHotel(){
+    public void registrarHotel(){
         try{
 
             Ciudad ciudad=administradorHotelServicio.obtenerCiudad(5);
             hotel.setCiudad(ciudad);
 
             //Esto que voy a hacer está mal porque el codigo de las ciudades no es autoincrementable
-            Integer codigo=1;
+            Integer codigo=3;
 
             hotel.setCodigo(codigo);
 
@@ -57,14 +57,13 @@ public class HotelBean implements Serializable {
 
             administradorHotelServicio.crearHotel(hotel);
 
-            /*FacesMessage msj= new FacesMessage(FacesMessage.SEVERITY_INFO, "Alerta", "Hotel creado correctamente");
-            FacesContext.getCurrentInstance().addMessage(null, msj);*/
-            return "registro_exitoso?faces-redirect=true";
+            FacesMessage msj= new FacesMessage(FacesMessage.SEVERITY_INFO, "Alerta", "Hotel creado correctamente");
+            FacesContext.getCurrentInstance().addMessage(null, msj);
         } catch (Exception e){
             FacesMessage msj= new FacesMessage(FacesMessage.SEVERITY_ERROR, "Alerta", e.getMessage());
             FacesContext.getCurrentInstance().addMessage(null, msj);
         }
-            return null;
+
     }
 
     public void subirImagenes(FileUploadEvent event) {
